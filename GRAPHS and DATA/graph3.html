@@ -200,572 +200,48 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  postphillies <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(NAME, H, HR, RBI, AVG, OBP, SLG, OPS) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(AVG))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>post <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>post <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bryce Harper led the Phillies to the World Series"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Not only did Harper hit the homerun to get the Phillies to the World Series, but he leads the team in seven offensive stats."</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">tab_style</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">tab_style</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Madelyn Harris  |  **Source:** ESPN"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">12</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_row_striping</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_table_lines</span>(<span class="st">"none"</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"#002D72"</span>),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> NAME <span class="sc">==</span><span class="st">"Bryce Harper"</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="rkaleuyoqp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="psngsasyie" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#rkaleuyoqp) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#rkaleuyoqp) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#rkaleuyoqp) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#rkaleuyoqp) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#rkaleuyoqp) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#rkaleuyoqp) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#rkaleuyoqp) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#rkaleuyoqp) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#rkaleuyoqp) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#rkaleuyoqp) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#rkaleuyoqp) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#rkaleuyoqp) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#rkaleuyoqp) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#rkaleuyoqp) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#rkaleuyoqp) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#rkaleuyoqp) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#rkaleuyoqp) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#rkaleuyoqp) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#rkaleuyoqp) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#rkaleuyoqp) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#rkaleuyoqp) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#rkaleuyoqp) .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#rkaleuyoqp) .gt_left {
-  text-align: left;
-}
-
-:where(#rkaleuyoqp) .gt_center {
-  text-align: center;
-}
-
-:where(#rkaleuyoqp) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#rkaleuyoqp) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#rkaleuyoqp) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#rkaleuyoqp) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#rkaleuyoqp) .gt_super {
-  font-size: 65%;
-}
-
-:where(#rkaleuyoqp) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#rkaleuyoqp) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#rkaleuyoqp) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#rkaleuyoqp) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#rkaleuyoqp) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#rkaleuyoqp) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#rkaleuyoqp) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col">NAME</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">H</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">HR</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">RBI</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">AVG</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">OBP</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">SLG</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">OPS</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">Bryce Harper</td>
-<td class="gt_row gt_right">21</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">13</td>
-<td class="gt_row gt_right">0.368</td>
-<td class="gt_row gt_right">0.410</td>
-<td class="gt_row gt_right">0.789</td>
-<td class="gt_row gt_right">1.199</td></tr>
-    <tr><td class="gt_row gt_left">Edmundo Sosa</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0.333</td>
-<td class="gt_row gt_right">0.375</td>
-<td class="gt_row gt_right">0.500</td>
-<td class="gt_row gt_right">0.875</td></tr>
-    <tr><td class="gt_row gt_left">J.T. Realmuto</td>
-<td class="gt_row gt_right">13</td>
-<td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">0.228</td>
-<td class="gt_row gt_right">0.302</td>
-<td class="gt_row gt_right">0.404</td>
-<td class="gt_row gt_right">0.705</td></tr>
-    <tr><td class="gt_row gt_left">Nick Castellanos</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">7</td>
-<td class="gt_row gt_right">0.211</td>
-<td class="gt_row gt_right">0.250</td>
-<td class="gt_row gt_right">0.281</td>
-<td class="gt_row gt_right">0.531</td></tr>
-    <tr><td class="gt_row gt_left">Kyle Schwarber</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">0.208</td>
-<td class="gt_row gt_right">0.385</td>
-<td class="gt_row gt_right">0.458</td>
-<td class="gt_row gt_right">0.843</td></tr>
-    <tr><td class="gt_row gt_left">Jean Segura</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">0.204</td>
-<td class="gt_row gt_right">0.245</td>
-<td class="gt_row gt_right">0.245</td>
-<td class="gt_row gt_right">0.490</td></tr>
-    <tr><td class="gt_row gt_left">Alec Bohm</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">0.196</td>
-<td class="gt_row gt_right">0.276</td>
-<td class="gt_row gt_right">0.353</td>
-<td class="gt_row gt_right">0.629</td></tr>
-    <tr><td class="gt_row gt_left">Brandon Marsh</td>
-<td class="gt_row gt_right">7</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">5</td>
-<td class="gt_row gt_right">0.194</td>
-<td class="gt_row gt_right">0.256</td>
-<td class="gt_row gt_right">0.444</td>
-<td class="gt_row gt_right">0.701</td></tr>
-    <tr><td class="gt_row gt_left">Rhys Hoskins</td>
-<td class="gt_row gt_right">11</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_right">0.183</td>
-<td class="gt_row gt_right">0.234</td>
-<td class="gt_row gt_right">0.500</td>
-<td class="gt_row gt_right">0.734</td></tr>
-    <tr><td class="gt_row gt_left">Matt Vierling</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0.167</td>
-<td class="gt_row gt_right">0.167</td>
-<td class="gt_row gt_right">0.250</td>
-<td class="gt_row gt_right">0.417</td></tr>
-    <tr><td class="gt_row gt_left">Bryson Stott</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">0.150</td>
-<td class="gt_row gt_right">0.261</td>
-<td class="gt_row gt_right">0.250</td>
-<td class="gt_row gt_right">0.511</td></tr>
-    <tr><td class="gt_row gt_left">Nick Maton</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td>
-<td class="gt_row gt_right">0.000</td>
-<td class="gt_row gt_right">0.000</td>
-<td class="gt_row gt_right">0.000</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>post <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bryce Harper led the Phillies to the World Series"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Not only did Harper hit the homerun to get the Phillies to the World Series, but he leads the team in seven offensive stats."</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">tab_style</span>(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">tab_style</span>(</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Madelyn Harris  |  **Source:** ESPN"</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">12</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>     )</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">%&gt;%</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_row_striping</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_table_lines</span>(<span class="st">"none"</span>)<span class="sc">%&gt;%</span> </span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"#002D72"</span>),</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> NAME <span class="sc">==</span><span class="st">"Bryce Harper"</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div id="tmimxewyrh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#tmimxewyrh) .gt_table {
+:where(#psngsasyie) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -790,7 +266,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-left-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_heading {
+:where(#psngsasyie) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -802,7 +278,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-right-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_title {
+:where(#psngsasyie) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -814,7 +290,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-bottom-width: 0;
 }
 
-:where(#tmimxewyrh) .gt_subtitle {
+:where(#psngsasyie) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -826,13 +302,13 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-top-width: 0;
 }
 
-:where(#tmimxewyrh) .gt_bottom_border {
+:where(#psngsasyie) .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_col_headings {
+:where(#psngsasyie) .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -847,7 +323,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-right-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_col_heading {
+:where(#psngsasyie) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -867,7 +343,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   overflow-x: hidden;
 }
 
-:where(#tmimxewyrh) .gt_column_spanner_outer {
+:where(#psngsasyie) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -879,15 +355,15 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   padding-right: 4px;
 }
 
-:where(#tmimxewyrh) .gt_column_spanner_outer:first-child {
+:where(#psngsasyie) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#tmimxewyrh) .gt_column_spanner_outer:last-child {
+:where(#psngsasyie) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#tmimxewyrh) .gt_column_spanner {
+:where(#psngsasyie) .gt_column_spanner {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -899,7 +375,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   width: 100%;
 }
 
-:where(#tmimxewyrh) .gt_group_heading {
+:where(#psngsasyie) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -924,7 +400,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   vertical-align: middle;
 }
 
-:where(#tmimxewyrh) .gt_empty_group_heading {
+:where(#psngsasyie) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -939,15 +415,15 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   vertical-align: middle;
 }
 
-:where(#tmimxewyrh) .gt_from_md > :first-child {
+:where(#psngsasyie) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#tmimxewyrh) .gt_from_md > :last-child {
+:where(#psngsasyie) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#tmimxewyrh) .gt_row {
+:where(#psngsasyie) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -966,7 +442,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   overflow-x: hidden;
 }
 
-:where(#tmimxewyrh) .gt_stub {
+:where(#psngsasyie) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -979,7 +455,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   padding-right: 5px;
 }
 
-:where(#tmimxewyrh) .gt_stub_row_group {
+:where(#psngsasyie) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -993,11 +469,11 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   vertical-align: top;
 }
 
-:where(#tmimxewyrh) .gt_row_group_first td {
+:where(#psngsasyie) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#tmimxewyrh) .gt_summary_row {
+:where(#psngsasyie) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1007,16 +483,16 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   padding-right: 5px;
 }
 
-:where(#tmimxewyrh) .gt_first_summary_row {
+:where(#psngsasyie) .gt_first_summary_row {
   border-top-style: none;
   border-top-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_first_summary_row.thick {
+:where(#psngsasyie) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#tmimxewyrh) .gt_last_summary_row {
+:where(#psngsasyie) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1026,7 +502,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_grand_summary_row {
+:where(#psngsasyie) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1036,7 +512,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   padding-right: 5px;
 }
 
-:where(#tmimxewyrh) .gt_first_grand_summary_row {
+:where(#psngsasyie) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1046,11 +522,11 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-top-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_striped {
+:where(#psngsasyie) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#tmimxewyrh) .gt_table_body {
+:where(#psngsasyie) .gt_table_body {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1059,7 +535,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_footnotes {
+:where(#psngsasyie) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1073,7 +549,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-right-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_footnote {
+:where(#psngsasyie) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1082,7 +558,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   padding-right: 5px;
 }
 
-:where(#tmimxewyrh) .gt_sourcenotes {
+:where(#psngsasyie) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1096,7 +572,7 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   border-right-color: #D3D3D3;
 }
 
-:where(#tmimxewyrh) .gt_sourcenote {
+:where(#psngsasyie) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1104,64 +580,64 @@ dbl (17): GP, AB, R, H, 2B, 3B, HR, RBI, TB, BB, SO, SB, AVG, OBP, SLG, OPS,...
   padding-right: 5px;
 }
 
-:where(#tmimxewyrh) .gt_left {
+:where(#psngsasyie) .gt_left {
   text-align: left;
 }
 
-:where(#tmimxewyrh) .gt_center {
+:where(#psngsasyie) .gt_center {
   text-align: center;
 }
 
-:where(#tmimxewyrh) .gt_right {
+:where(#psngsasyie) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#tmimxewyrh) .gt_font_normal {
+:where(#psngsasyie) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#tmimxewyrh) .gt_font_bold {
+:where(#psngsasyie) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#tmimxewyrh) .gt_font_italic {
+:where(#psngsasyie) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#tmimxewyrh) .gt_super {
+:where(#psngsasyie) .gt_super {
   font-size: 65%;
 }
 
-:where(#tmimxewyrh) .gt_footnote_marks {
+:where(#psngsasyie) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#tmimxewyrh) .gt_asterisk {
+:where(#psngsasyie) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#tmimxewyrh) .gt_indent_1 {
+:where(#psngsasyie) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#tmimxewyrh) .gt_indent_2 {
+:where(#psngsasyie) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#tmimxewyrh) .gt_indent_3 {
+:where(#psngsasyie) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#tmimxewyrh) .gt_indent_4 {
+:where(#psngsasyie) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#tmimxewyrh) .gt_indent_5 {
+:where(#psngsasyie) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
